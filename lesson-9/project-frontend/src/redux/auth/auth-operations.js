@@ -2,24 +2,11 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import * as api from "../../shared/api/auth";
 
-export const register = createAsyncThunk(
-    "auth/signup",
-    async (data, { rejectWithValue }) => {
-        try {
-            const result = await api.register(data);
-            return result;
-        }
-        catch ({ response }) {
-            return rejectWithValue(response.data);
-        }
-    }
-)
-
-export const login = createAsyncThunk(
+export const signin = createAsyncThunk(
     "auth/signin",
     async (data, { rejectWithValue }) => {
         try {
-            const result = await api.login(data);
+            const result = await api.signin(data);
             return result;
         }
         catch ({ response }) {
@@ -28,11 +15,11 @@ export const login = createAsyncThunk(
     }
 )
 
-export const logout = createAsyncThunk(
+export const signout = createAsyncThunk(
     "auth/signout",
     async (_, { rejectWithValue }) => {
         try {
-            const result = await api.logout();
+            const result = await api.signout();
             return result;
         }
         catch ({ response }) {

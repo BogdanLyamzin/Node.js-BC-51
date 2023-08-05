@@ -1,20 +1,26 @@
-import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import RegisterForm from "../../modules/RegisterForm/RegisterForm";
 
-import { register } from "../../redux/auth/auth-operations";
+import { signup } from "../../shared/api/auth";
 
 const RegisterPage = () => {
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const onRegister = (data)=> {
-        dispatch(register(data));
+    const onSignup = async(data)=> {
+        try {
+            await signup(data);
+            navigate("/login")
+        }
+        catch(error) {
+            console.log(error.message);
+        }
     }
 
     return (
         <div className="container">
             <h1 className="page-title">Register page</h1>
-            <RegisterForm onSubmit={onRegister} />
+            <RegisterForm onSubmit={onSignup} />
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { register, login, logout, current } from "./auth-operations";
+import { signin, signout, current } from "./auth-operations";
 
 const initialState = {
     user: {},
@@ -14,31 +14,17 @@ const authSlice = createSlice({
     name: "auth",
     initialState,
     extraReducers: builder => {
-        builder.addCase(register.pending, state => {
+        builder.addCase(signin.pending, state => {
             state.loading = true;
             state.error = null;
         })
-        .addCase(register.fulfilled, (state, {payload}) => {
+        .addCase(signin.fulfilled, (state, {payload}) => {
             state.loading = false;
             state.user = payload.user;
             state.token = payload.token;
             state.isLogin = true;
         })
-        .addCase(register.rejected, (state, {payload}) => {
-            state.loading = false;
-            state.error = payload;
-        })
-        .addCase(login.pending, state => {
-            state.loading = true;
-            state.error = null;
-        })
-        .addCase(login.fulfilled, (state, {payload}) => {
-            state.loading = false;
-            state.user = payload.user;
-            state.token = payload.token;
-            state.isLogin = true;
-        })
-        .addCase(login.rejected, (state, {payload}) => {
+        .addCase(signin.rejected, (state, {payload}) => {
             state.loading = false;
             state.error = payload;
         })
@@ -57,17 +43,17 @@ const authSlice = createSlice({
             state.token = "";
             state.error = payload;
         })
-        .addCase(logout.pending, state => {
+        .addCase(signout.pending, state => {
             state.loading = true;
             state.error = null;
         })
-        .addCase(logout.fulfilled, (state) => {
+        .addCase(signout.fulfilled, (state) => {
             state.loading = false;
             state.user = {};
             state.token = "";
             state.isLogin = false;
         })
-        .addCase(logout.rejected, (state, {payload}) => {
+        .addCase(signout.rejected, (state, {payload}) => {
             state.loading = false;
             state.error = payload;
         })

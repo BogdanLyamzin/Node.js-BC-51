@@ -7,7 +7,7 @@ const PublicRoute = ()=> {
     const isLogin = useSelector(isUserLogin);
 
     if(isLogin) {
-        return <Navigate to="/my-books" />
+        return <Navigate to="/my-movies" />
     }
 
     return <Outlet />

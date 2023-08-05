@@ -11,8 +11,8 @@ const PostsPage = lazy(() => import("./pages/PostsPage/PostsPage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
 const SinglePostPage = lazy(() => import("./pages/SinglePostPage/SinglePostPage"));
 const CommentsPage = lazy(() => import("./pages/CommentsPage/CommentsPage"));
-const MyBooksPage = lazy(() => import("./pages/MyBooksPage/MyBooksPage"));
-const MyFavoriteBooksPage = lazy(() => import("./pages/MyFavoriteBooksPage/MyFavoriteBooksPage"));
+const MyMoviesPage = lazy(() => import("./pages/MyMoviesPage/MyMoviesPage"));
+const MyFavoriteMoviesPage = lazy(() => import("./pages/MyFavoriteMoviesPage/MyFavoriteMoviesPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 const UserRoutes = () => {
@@ -30,8 +30,8 @@ const UserRoutes = () => {
                     <Route path="comments" element={<CommentsPage />} />
                 </Route>
                 <Route element={<PrivateRoute />}>
-                    <Route path="/my-books" element={<MyBooksPage />} />
-                    <Route path="/my-favorite-books" element={<MyFavoriteBooksPage />} />
+                    <Route path="/my-movies" element={<MyMoviesPage />} />
+                    <Route path="/my-favorite-mvoies" element={<MyFavoriteMoviesPage />} />
                 </Route>
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>

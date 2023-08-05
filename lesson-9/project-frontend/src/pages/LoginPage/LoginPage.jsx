@@ -2,13 +2,13 @@ import { useDispatch } from "react-redux";
 
 import LoginForm from "../../modules/LoginForm/LoginForm";
 
-import { login } from "../../redux/auth/auth-operations";
+import { signin } from "../../redux/auth/auth-operations";
 
 const LoginPage = () => {
     const dispatch = useDispatch();
 
     const onLogin = (data)=> {
-        dispatch(login(data));
+        dispatch(signin(data));
     }
 
     return (

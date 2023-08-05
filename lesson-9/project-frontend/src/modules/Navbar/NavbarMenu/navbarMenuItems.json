@@ -13,14 +13,14 @@
     },
     {
         "id": "3",
-        "text": "My books page",
-        "link": "/my-books",
+        "text": "My movies page",
+        "link": "/my-movies",
         "private": true
     },
     {
         "id": "4",
-        "text": "My favorite books page",
-        "link": "/my-favorite-books",
+        "text": "My favorite movies page",
+        "link": "/my-favorite-movies",
         "private": true
     },
     {
